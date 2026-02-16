@@ -1,0 +1,8 @@
+# Large/rebuildable files
+*.sqlite
+repos/
+snoop-insights/
+
+# Credentials (restored manually)
+.env
+.git-credentials
