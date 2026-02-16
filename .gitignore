@@ -6,3 +6,4 @@ snoop-insights/
 # Credentials (restored by setup.sh, contain tokens)
 .env
 .gitconfig
+.git-credentials
