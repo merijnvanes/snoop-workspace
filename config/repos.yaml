@@ -16,3 +16,15 @@ repos:
     branch: main
     focus:
       - all
+
+  - github: merijnvanes/recursive-language-model-test
+    name: recursive-language-model-test
+    branch: main
+    focus:
+      - all
+
+  - github: merijnvanes/mulletiq-llm-router-stack
+    name: mulletiq-llm-router-stack
+    branch: main
+    focus:
+      - all

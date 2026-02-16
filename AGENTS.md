@@ -60,11 +60,7 @@ IDs are sequential per project (001, 002, ...). Types: security, architecture, u
 
 ## Git Credentials
 
-Git operations use the GitHub PAT from the environment. Configure with:
-```
-git config credential.helper store
-```
-The PAT is stored in `.git-credentials` on the VPS.
+Git credentials are configured automatically via `.gitconfig` (`url.insteadOf` rules). Any `git clone https://github.com/...` command will have the correct PAT injected — you don't need to add tokens to URLs manually.
 
 ## Discord
 
