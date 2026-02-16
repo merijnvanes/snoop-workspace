@@ -54,9 +54,9 @@ Add these to `.gitignore` in the workspace:
 repos/
 snoop-insights/
 
-# Credentials (restored manually)
+# Credentials (restored by setup.sh, contain tokens)
 .env
-.git-credentials
+.gitconfig
 ```
 
 ## Error Handling
