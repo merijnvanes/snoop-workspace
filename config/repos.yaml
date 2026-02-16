@@ -1,0 +1,18 @@
+# Monitored repositories
+#
+# The "name" field MUST match the directory name in snoop-insights/
+# and your local project directory name (e.g., ~/CodeProjects/<name>/).
+#
+# Focus areas: security, architecture, usability, ideas, all
+repos:
+  - github: merijnvanes/lobster-pod
+    name: lobster-pod
+    branch: main
+    focus:
+      - all
+
+  - github: merijnvanes/snoop
+    name: snoop
+    branch: main
+    focus:
+      - all
