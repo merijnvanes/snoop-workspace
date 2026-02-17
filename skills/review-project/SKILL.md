@@ -25,21 +25,20 @@ Check if `repos/{name}/` exists in your workspace:
 - If not: `git clone https://github.com/{owner}/{repo}.git repos/{name}/`
 - If yes: `cd repos/{name}/ && git fetch origin && git checkout {branch} && git pull`
 
-Use the GitHub PAT for authentication:
-```bash
-git clone https://${GITHUB_PAT_READ}@github.com/{owner}/{repo}.git repos/{name}/
-```
+Authentication is handled automatically by `.gitconfig` URL rewrite rules — use plain `https://github.com/` URLs.
 
 ### 3. Load existing tickets
 
 Clone or pull the insights repo:
 ```bash
 # First run:
-git clone https://${GITHUB_PAT_WRITE}@github.com/${SNOOP_INSIGHTS_REPO}.git snoop-insights/
+git clone https://github.com/${SNOOP_INSIGHTS_REPO}.git snoop-insights/
 
 # Subsequent runs:
 cd snoop-insights/ && git pull
 ```
+
+Authentication is handled automatically by `.gitconfig` — use plain URLs.
 
 Read all `.md` files in `snoop-insights/{name}/` to get existing tickets. Parse their YAML frontmatter to extract `id`, `type`, `priority`, `status`, `files`.
 

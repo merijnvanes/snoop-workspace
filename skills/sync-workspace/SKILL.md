@@ -14,12 +14,12 @@ Back up the current workspace state to the `snoop-workspace` GitHub repo.
 Run these commands in order:
 
 ```bash
-cd ~/.openclaw/workspace
+cd /workspace
 
 # Initialize git if needed (first run)
 if [ ! -d .git ]; then
   git init
-  git remote add origin "https://${GITHUB_PAT_WRITE}@github.com/${SNOOP_WORKSPACE_REPO}.git"
+  git remote add origin "https://github.com/${SNOOP_WORKSPACE_REPO}.git"
   git branch -M main
 fi
 
