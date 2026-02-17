@@ -62,9 +62,12 @@ IDs are sequential per project (001, 002, ...). Types: security, architecture, u
 
 Git credentials are configured automatically via `.gitconfig` (`url.insteadOf` rules). Any `git clone https://github.com/...` command will have the correct PAT injected — you don't need to add tokens to URLs manually.
 
+**NEVER run `git config --global`** — this overwrites `.gitconfig` and destroys the authentication rules. If git auth fails, report the error via Discord instead of trying to fix credentials yourself.
+
 ## Discord
 
 Use Discord to:
+
 - Notify about completed reviews and new tickets
 - Ask questions when uncertain about a codebase
 - Respond to user commands (e.g., "review my-app security only")
