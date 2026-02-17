@@ -16,6 +16,7 @@ Look up the repo name in `config/repos.yaml` to get:
 - `github`: the owner/repo path (e.g., `you/my-app`)
 - `branch`: the branch to review (e.g., `main`)
 - `focus`: the review focus areas (e.g., `[security, usability, ideas]`)
+- `exclude`: list of path patterns to skip (e.g., `["**/raw/**"]`)
 
 If the repo name isn't found in config, send a Discord message and stop.
 
@@ -48,12 +49,12 @@ Determine the next sequential ticket ID by finding the highest existing ID and a
 
 ### 4. Build project context
 
-Gather the following from the repo:
+Gather the following from the repo, respecting `exclude` patterns from config:
 
 ```bash
-# File tree (exclude .git, node_modules, etc.)
+# File tree (exclude .git, node_modules, and configured exclude patterns)
 find repos/{name}/ -not -path '*/.git/*' -not -path '*/node_modules/*' \
-  -not -path '*/__pycache__/*' -not -path '*/.next/*' | head -500
+  -not -path '*/__pycache__/*' -not -path '*/.next/*' {exclude_flags} | head -500
 
 # README
 cat repos/{name}/README.md 2>/dev/null
@@ -66,8 +67,9 @@ cat repos/{name}/pyproject.toml 2>/dev/null
 # Recent git log
 cd repos/{name}/ && git log --oneline -20
 
-# Diff since last review
-cd repos/{name}/ && git diff {last_sha}..HEAD
+# Diff since last review (excluding paths matching configured patterns)
+# Example: git diff {last_sha}..HEAD -- . ':!**/raw/**'
+cd repos/{name}/ && git diff {last_sha}..HEAD -- . {exclude_git_flags}
 ```
 
 Get `last_sha` from `state/repos.json`. If this is the first review (no last_sha), use the full git log and skip the diff.

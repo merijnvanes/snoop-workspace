@@ -22,6 +22,10 @@ repos:
     branch: main
     focus:
       - all
+    exclude:
+      - "**/raw/**"
+      - "data/sec_filings/raw/**"
+      - "data/legislation/raw/**"
 
   - github: merijnvanes/mulletiq-llm-router-stack
     name: mulletiq-llm-router-stack
